@@ -1,26 +1,28 @@
-import square
+import tile
 from local import *
-class Board():
-    # Represents the entire playing field.
+import math
+class Board(object):
+    """Represents the entire playing field."""
+    tile_list = []
     def __init__(self):
         """
-        window: main display surface.
+        
         """
-        self.sq_list = []        
+        
         # Create squares.
-        for x in range(SCREEN_WIDTH/SQ_SIZE):
+        for x in range(SCREEN_WIDTH/TILE_SIZE):
             temp_ls = []  # To store another column of squares.
-            for y in range(SCREEN_HEIGHT/SQ_SIZE):
-                temp_ls.append(square.Square(x, y))
-            self.sq_list.append(temp_ls)
+            for y in range(SCREEN_HEIGHT/TILE_SIZE):
+                temp_ls.append(tile.Tile(x, y))
+            Board.tile_list.append(temp_ls)
                 
                 
     def draw(self):
-        for column in self.sq_list:
-            for square in column:
-                square.draw()
-        
-        
+        for column in Board.tile_list:
+            for tile in column:
+                tile.draw()
     
-        
-    
+    @staticmethod            
+    def get_tile_at_pos(pos):
+        """pos is tuple (x, y)"""
+        return(math.floor(pos[0]/TILE_SIZE), math.floor(pos[1]/TILE_SIZE))
