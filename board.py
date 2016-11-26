@@ -25,5 +25,8 @@ class Board(object):
     
     @staticmethod            
     def get_tile_at_pos(pos):
-        """pos is tuple (x, y)"""
-        return(math.floor(pos[0]/TILE_SIZE), math.floor(pos[1]/TILE_SIZE))
+        """
+        Return the tile at screen coordinate (x, y)
+        Pos is tuple (x, y)       
+        """
+        return Board.tile_list[int(math.floor(pos[0]/TILE_SIZE))][int(math.floor(pos[1]/TILE_SIZE))]

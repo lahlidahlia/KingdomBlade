@@ -11,7 +11,7 @@ class Infantry(squad.Squad):
         self.attack = 1
         self.health = 10
         self.defense = 1
-        self.base_speed = 2
+        self.base_speed = 10
         self.color = RED_COLOR
         
     

@@ -35,8 +35,7 @@ class Tile(object):
         color.a = 255
         pygame.gfxdraw.rectangle(window, (self.x * TILE_SIZE, self.y * TILE_SIZE, TILE_SIZE, TILE_SIZE), color)
         
-        font = pygame.font.SysFont("monospace", 10)
-        text = font.render("{},{}".format(self.x, self.y), True, BLACK_COLOR)
+        text = FONT.render("{},{}".format(self.x, self.y), True, BLACK_COLOR)
         window.blit(text, (self.x*TILE_SIZE + 2, self.y*TILE_SIZE+2))
         
         
@@ -57,14 +56,15 @@ class Tile(object):
         """Return a list of adjacent tiles."""
         ret = []
         #print({}, {})
-        if self.x > 0:
-            ret.append(Board.tile_list[self.x - 1][self.y])
-        if self.x < BOARD_WIDTH-1:
-            ret.append(Board.tile_list[self.x + 1][self.y])
         if self.y > 0:
             ret.append(Board.tile_list[self.x][self.y - 1])
         if self.y < BOARD_HEIGHT-1:
             ret.append(Board.tile_list[self.x][self.y + 1])
+        if self.x > 0:
+            ret.append(Board.tile_list[self.x - 1][self.y])
+        if self.x < BOARD_WIDTH-1:
+            ret.append(Board.tile_list[self.x + 1][self.y])
+
             
         return ret
     

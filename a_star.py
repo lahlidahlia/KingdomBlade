@@ -9,6 +9,8 @@ def construct_path(start_tile, goal_tile):
     
     start_tile and goal_tile are of Tile class.
     """
+    if start_tile == goal_tile:
+        return [start_tile]
     frontier = PriorityQueue()
     frontier.put((0, start_tile))
     came_from = {}
@@ -37,7 +39,7 @@ def construct_path(start_tile, goal_tile):
     while current != start_tile:
         current = came_from[current]
         path.append(current)
-        
+    path.pop()  # Remove the starting node.
     return path
             
 def manhattan_distance(a, b):

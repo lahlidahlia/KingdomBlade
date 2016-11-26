@@ -19,3 +19,5 @@ RED_COLOR = pygame.Color(255, 0, 0)
 sign = lambda x: (x > 0) - (x < 0)  # Get the sign of the variable
 
 FPS = 60  # Frames per second
+
+FONT = pygame.font.SysFont("monospace", 10)
