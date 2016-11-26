@@ -5,6 +5,7 @@ import sys
 import infantry
 from pygame.locals import *
 from local import *
+import a_star
 
 pygame.init()
 
@@ -17,7 +18,7 @@ Board = board.Board()
 
 dest_tile = None  # (x, y)
 
-Infantry = infantry.Infantry(5, 5, 50)
+Infantry = infantry.Infantry(2, 2, 50)
 pygame.key.set_repeat(1, 1)
 while True:
     # GAME LOOP
@@ -41,6 +42,9 @@ while True:
                 move_left = Infantry.move(0, -1)
             if event.key == K_DOWN:
                 move_left = Infantry.move(0, 1)
+                path = a_star.construct_path(board.Board.tile_list[5][5], board.Board.tile_list[7][8])
+                for tile in path:
+                    infantry.Infantry(tile.x, tile.y, 50)
         
         # if event.type == MOUSEBUTTONDOWN:
         #     move_left = 0

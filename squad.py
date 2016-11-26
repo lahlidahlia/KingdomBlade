@@ -35,8 +35,8 @@ class Squad(object):
     def loop(self):
         """Executed every frame."""
         self.speed = self.base_speed
-        print("Main: {}, Other: {}".format(self.main_tile.amount,
-                                           self.other_tile.amount if self.other_tile else self.other_tile))
+        #print("Main: {}, Other: {}".format(self.main_tile.amount,
+        #                                  self.other_tile.amount if self.other_tile else self.other_tile))
     
     def move(self, dx, dy):
         """

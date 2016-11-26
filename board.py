@@ -9,10 +9,11 @@ class Board(object):
         
         """
         
+        
         # Create squares.
-        for x in range(SCREEN_WIDTH/TILE_SIZE):
+        for x in range(BOARD_WIDTH):
             temp_ls = []  # To store another column of squares.
-            for y in range(SCREEN_HEIGHT/TILE_SIZE):
+            for y in range(BOARD_HEIGHT):
                 temp_ls.append(tile.Tile(x, y))
             Board.tile_list.append(temp_ls)
                 
