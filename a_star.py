@@ -1,5 +1,4 @@
 from Queue import PriorityQueue
-from board import Board
 import math
 
 def construct_path(start_tile, goal_tile):
